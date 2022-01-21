@@ -1,9 +1,6 @@
 package guru.springframework.sfgdi;
 
-import guru.springframework.sfgdi.controller.ConstructorInjectedController;
-import guru.springframework.sfgdi.controller.MyController;
-import guru.springframework.sfgdi.controller.PropertyInjectedController;
-import guru.springframework.sfgdi.controller.SetterInjectedController;
+import guru.springframework.sfgdi.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +11,12 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args); //this returns the app context
 
-		MyController myController = (MyController) ctx.getBean("myController"); //using the context we can get any bean that spring created (classes with a particular annotation like controller, service, entity etc.)
+		MyController myController = (MyController) ctx.getBean("myController");
+		//using the context we can get any bean that spring created (classes with a particular annotation like controller, service, entity etc.)
 		//the name of the bean is class name with lower first letter.
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		String greeting = myController.sayHello();
 		System.out.println(greeting);

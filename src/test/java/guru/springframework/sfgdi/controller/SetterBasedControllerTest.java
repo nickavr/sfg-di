@@ -1,6 +1,6 @@
 package guru.springframework.sfgdi.controller;
 
-import guru.springframework.sfgdi.services.GreetingServiceImpl;
+import guru.springframework.sfgdi.services.GreetingPropertyServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ class SetterBasedControllerTest {
     @BeforeEach
     void setUp() { //simulating DI with setter injection
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServiceImpl());
+        controller.setGreetingService(new GreetingPropertyServiceImpl());
     }
 
     @Test
